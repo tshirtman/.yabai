@@ -1,0 +1,51 @@
+# focus monitor
+ctrl + cmd - z  : yabai -m space --focus prev
+
+# send window to monitor and follow focus
+cmd - d  : yabai -m display --focus next
+cmd + shift - d  : yabai -m window --display next; yabai -m display --focus next
+
+# move floating window
+# shift + ctrl - a : yabai -m window --move rel:-20:0
+# shift + ctrl - s : yabai -m window --move rel:0:20
+
+# increase window size
+# shift + alt - a : yabai -m window --resize left:-20:0
+# shift + alt - w : yabai -m window --resize top:0:-20
+
+# toggle window split type
+cmd - e : yabai -m window --toggle split
+
+# toggle sticky(+float), topmost, picture-in-picture
+# alt - p : yabai -m window --toggle sticky --toggle topmost --toggle pip
+#
+
+cmd - return : /Applications/iTerm.app/Contents/MacOS/iTerm2
+
+# move focus around, using helper script to make it depend on the mode
+cmd - h : sh $HOME/.yabai/navigate.sh west
+cmd - j : sh $HOME/.yabai/navigate.sh south
+cmd - k : sh $HOME/.yabai/navigate.sh north
+cmd - l : sh $HOME/.yabai/navigate.sh east
+
+# shift window in current workspace
+cmd + shift - h : yabai -m window --swap west || $(yabai -m window --display west; yabai -m display --focus west)
+cmd + shift - j : yabai -m window --swap south || $(yabai -m window --display south; yabai -m display --focus south)
+cmd + shift - k : yabai -m window --swap north || $(yabai -m window --display north; yabai -m display --focus north)
+cmd + shift - l : yabai -m window --swap east || $(yabai -m window --display east; yabai -m display --focus east)
+
+# set insertion point in focused container
+cmd + ctrl - h : yabai -m window --insert west
+cmd + ctrl - j : yabai -m window --insert south
+cmd + ctrl - k : yabai -m window --insert north
+cmd + ctrl - l : yabai -m window --insert east
+
+cmd - space : sh $HOME/.yabai/cycle-layout.sh
+
+cmd - f : yabai -m window --toggle zoom-fullscreen
+ctrl + cmd - f : yabai -m window --toggle native-fullscreen
+
+alt + cmd - h : yabai -m window --resize left:-20:0 || yabai -m window  --resize right:-20:0
+alt + cmd - l : yabai -m window --resize left:20:0 || yabai -m window  --resize right:20:0
+alt + cmd - j : yabai -m window --resize top:0:-20 || yabai -m window  --resize bottom:0:-20
+alt + cmd - k : yabai -m window --resize top:0:20 || yabai -m window  --resize bottom:0:20
