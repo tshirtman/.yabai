@@ -4,6 +4,8 @@ ctrl + cmd - z  : yabai -m space --focus prev
 # send window to monitor and follow focus
 cmd - d  : yabai -m display --focus next
 cmd + shift - d  : yabai -m window --display next; yabai -m display --focus next
+cmd + shift - u  : yabai -m window --display previous; yabai -m display --focus previous
+cmd + shift - r  : yabai -m window --display recent; yabai -m display --focus recent
 
 # move floating window
 # shift + ctrl - a : yabai -m window --move rel:-20:0
